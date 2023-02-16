@@ -1,24 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import {getAllCountrys} from './services/getAllCountrys';
 
-function App() {
+const App = () => {
+
+  const [countrys, setCountrys] = useState([]);
+  const [searchCountry, setSearchCountry] = useState('');
+  
+  const hookEffect = () => {
+    getAllCountrys()
+    .then((countrys) => {
+      setCountrys(countrys);
+    })
+  }
+  useEffect(hookEffect, []);
+
+  const handleChangeInput = (event) => {
+    setSearchCountry(event.target.value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <form>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <label>Find Countries</label>
+          <input type="text" onChange={handleChangeInput} value={searchCountry}/>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </form>
+      <div>
+        {
+          searchCountry === '' ? <p>Search a Country</p> :
+          countrys
+          .filter((country) => (country.name.common.toLowerCase().includes(searchCountry)))
+          .map((findCountry, index) => (
+            <p key = {index}>{findCountry.name.common}</p>
+          ))
+        }
+      </div>
+    </>
   );
 }
 
