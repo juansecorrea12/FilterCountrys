@@ -1,21 +1,27 @@
-export const CountrySelected = ({infoCountry}) => {
+import { useState } from "react";
+import { CountryChoose } from "./CountryChoose";
+
+export const CountrySelected = ({filter}) => {
+    
+    const [infoCountry, setInfoCountry] = useState([]);
+
+    const buttonElement = (e) => {
+        const nameCountry = e.target.name;
+        const countrySelected = filter.filter(elm => elm.name.common === nameCountry);
+        setInfoCountry(countrySelected);
+    }
+    
     return(
-        infoCountry.map((elemento, index) => (
-            <div key={index}>
-                <p>{elemento.name.common}</p>
-            </div>
-        ))
-        /* <div>
-            <h2>{infoCountry.name.common}</h2>
-            <p>{infoCountry.capital}</p>
-            <p>{infoCountry.population}</p>
-            <h2>Languages</h2>
-            <ul>
-            {Object.values(infoCountry.languages).map((element,index) => (
-                <li key={index}>{element}</li>
-            ))}
-            </ul>
-            <img src={infoCountry.flags.png} alt={infoCountry.flags.alt} />
-        </div> */
+        <>
+            {
+                filter.map((findCountry, index) => (
+                    <div key={index}>
+                        <span>{findCountry.name.common}</span>
+                        <button type="button" name={findCountry.name.common} onClick={buttonElement}>show</button>
+                    </div>
+                ))
+            }
+            <CountryChoose infoCountry={infoCountry} />
+        </>
     )
 }
