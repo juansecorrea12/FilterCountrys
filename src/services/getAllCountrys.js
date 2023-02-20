@@ -5,5 +5,6 @@ export const getAllCountrys = () => {
     .then(response => {
       const { data } = response;
       return data;
-    });
+    }).catch(err => console.warn('No se ha efectuado la conexión con el servidor', err));
+    
 }

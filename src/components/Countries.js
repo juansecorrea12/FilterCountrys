@@ -1,7 +1,7 @@
 import { Country } from "./Country";
 import { CountrySelected } from "./CountrySelected";
 
-export const Countries = ({countrys, searchCountry}) => {
+export const Countries = ({countrys, searchCountry, weather}) => {
     const filter = countrys.filter((country) => (country.name.common.toLowerCase().includes(searchCountry)));
 
     if(filter.length >= 5){
@@ -12,6 +12,6 @@ export const Countries = ({countrys, searchCountry}) => {
             <CountrySelected filter={filter} />
         )
     }else{
-        return <Country filter = {filter}/>
+        return <Country filter = {filter} weather = {weather}/>
     }
 }
