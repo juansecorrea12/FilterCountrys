@@ -2,10 +2,10 @@ export const FormCountrys = (props) => {
     const {handleChangeInput, searchCountry} = props;
     return (
         <>
-        <form>
+        <form className="form-container">
         <p>
-          <label>Find Countries</label>
-          <input type="text" onChange={handleChangeInput} value={searchCountry}/>
+          <label>Search a country inside the list...</label>
+          <input type="text" onChange={handleChangeInput} value={searchCountry} placeholder='Japan'/>
         </p>
       </form>
         </>

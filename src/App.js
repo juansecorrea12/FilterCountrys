@@ -1,14 +1,12 @@
-import './App.css';
+import './Styles.css';
 import React, { useState, useEffect } from 'react';
 import {getAllCountrys} from './services/getAllCountrys';
-import { getWeatherCountry } from './services/getWeatherCountry';
 import { FormCountrys } from './components/FormCountrys';
 import { Countries } from './components/Countries';
 
 const App = () => {
 
   const [countrys, setCountrys] = useState([]);
-  const [weather, setWeather] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
   
   const countryEffect = () => {
@@ -17,14 +15,7 @@ const App = () => {
       setCountrys(countrys);
     })
   }
-  const weatherEffect = () => {
-    getWeatherCountry(searchCountry)
-    .then((weather) => {
-      setWeather(weather)
-    })
-  }
   useEffect(countryEffect, []);
-  useEffect(weatherEffect, [searchCountry]);
 
   const handleChangeInput = (event) => {
     setSearchCountry(event.target.value);
@@ -32,20 +23,22 @@ const App = () => {
 
   return (
     <>
+    <h1 className='title'>Country Search Engine</h1>
+    <div className='container'>
       <FormCountrys
       handleChangeInput = {handleChangeInput}
       searchCountry = {searchCountry} 
       />
-      <div>
+      <div className='container-result'>
         {
-          searchCountry === '' ? <p>Search a Country</p> :
+          searchCountry === '' ? <p className='text-search'>Type into the input to start searching...</p> :
           <Countries
           countrys = {countrys}
-          searchCountry = {searchCountry}
-          weather = {weather} 
+          searchCountry = {searchCountry} 
           />
         }
       </div>
+    </div>
     </>
   );
 }

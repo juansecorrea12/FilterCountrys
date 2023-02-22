@@ -13,15 +13,19 @@ export const CountrySelected = ({filter}) => {
     
     return(
         <>
+        <div className="list-countrys">
             {
                 filter.map((findCountry, index) => (
                     <div key={index}>
                         <span>{findCountry.name.common}</span>
-                        <button type="button" name={findCountry.name.common} onClick={buttonElement}>show</button>
+                        <img src={findCountry.flags.png} alt={findCountry.flags.alt}></img>
+                        <button type="button" name={findCountry.name.common} onClick={buttonElement}>Show Info</button>
                     </div>
                 ))
             }
-            <CountryChoose infoCountry={infoCountry} />
+            
+        </div>
+        <CountryChoose infoCountry={infoCountry} />
         </>
     )
 }

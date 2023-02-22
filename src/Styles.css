@@ -1,0 +1,141 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.title{
+  text-align: center;
+  padding: 1.5rem;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem 1rem;
+  justify-content: center;
+}
+.form-container{
+  width: 100%;
+  margin-bottom: 3rem;
+
+}
+.form-container p label{
+  font-size: 16px;
+  margin-right: 20px;
+}
+.form-container p input{
+  width: 30%;
+  height: 30px;
+  margin: 0px auto;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 1px 1px rgb(100, 88, 88) inset;
+  padding: 0.5rem;
+
+}
+.form-container p input[type=text]::placeholder,
+.form-container p input[type=text]:focus{
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(95, 93, 93);
+}
+.container-result{
+  width: 100%;
+  background-color: rgb(232, 232, 232);
+  padding: 2rem 1rem;
+}
+.container-result p{
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+.list-countrys{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.list-countrys div {
+  width: 20%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(211 211 211);
+  margin: 0.5rem;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+}
+.list-countrys div:hover{
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+}
+.list-countrys div span{
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 1rem;
+}
+.list-countrys div img{
+  margin-bottom: 1rem;
+  max-width: 8rem;
+}
+.list-countrys div button{
+  width: 80%;
+  height: 30px;
+  display: block;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  color: #444;
+  font-weight: bold;
+}
+.list-countrys div button:hover{
+  background-color: rgb(40, 57, 71);
+  color: white;
+}
+.country-select-container{
+  width: 100%;
+  height: 30vh;
+  margin: 0px auto;
+  margin-top: 4rem;
+  border-radius: 20px;
+  background-color: rgb(211 211 211);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+}
+.country-select-title{
+  font-size: 20px;
+}
+.country-select-body{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+.country-select-body div {
+  width: 10%;
+}
+.country-select-body div p{
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+.country-select-body div img {
+  max-width: 5rem;
+  object-fit: cover;
+}
+.country-select-languages ul{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: decimal;
+}
